@@ -13,8 +13,8 @@ struct SwiftUIView: View {
             Rectangle()
                 .fill(Color.secondary)
             
-            Rectangle()
-                .fill(Color.secondaryLabel)
+//            Rectangle()
+//                .fill(Color.secondaryLabel)
         }
     }
 }
