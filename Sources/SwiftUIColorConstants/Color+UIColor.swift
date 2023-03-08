@@ -109,11 +109,18 @@ extension Color {
      *                               systemGray3 is darker than that, and so on.
      */
     
+    // MARK: - Tint Color
+    
+//    public static var tintColor: Color { Color(uiBackport: .tintColor) }
+    
+    #if os(iOS) || targetEnvironment(macCatalyst)
+    
     /// A second-level shade of gray that adapts to the environment.
     ///
     /// This color adapts to the current environment.
     /// In light environments, this gray is slightly lighter than [systemGray](https://developer.apple.com/documentation/uikit/uicolor/3173143-systemgray).
     /// In dark environments, this gray is slightly darker than `systemGray`.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemGray2: Color { Color(uiBackport: .systemGray2) }
     
     /// A third-level shade of gray that adapts to the environment.
@@ -121,6 +128,7 @@ extension Color {
     /// This color adapts to the current environment.
     /// In light environments, this gray is slightly lighter than [systemGray2](https://developer.apple.com/documentation/uikit/uicolor/3255071-systemgray2).
     /// In dark environments, this gray is slightly darker than `systemGray2`.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemGray3: Color { Color(uiBackport: .systemGray3) }
 
     /// A fourth-level shade of gray that adapts to the environment.
@@ -128,6 +136,7 @@ extension Color {
     /// This color adapts to the current environment.
     /// In light environments, this gray is slightly lighter than [systemGray3](https://developer.apple.com/documentation/uikit/uicolor/3255072-systemgray3).
     /// In dark environments, this gray is slightly darker than `systemGray3`.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemGray4: Color { Color(uiBackport: .systemGray4) }
 
     /// A fifth-level shade of gray that adapts to the environment.
@@ -135,6 +144,7 @@ extension Color {
     /// This color adapts to the current environment.
     /// In light environments, this gray is slightly lighter than [systemGray4](https://developer.apple.com/documentation/uikit/uicolor/3255073-systemgray4).
     /// In dark environments, this gray is slightly darker than `systemGray4`.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemGray5: Color { Color(uiBackport: .systemGray5) }
     
     /// A fifth-level shade of gray that adapts to the environment.
@@ -143,55 +153,8 @@ extension Color {
     /// and is close in color to [systemBackground](https://developer.apple.com/documentation/uikit/uicolor/3173140-systembackground).
     /// In light environments, this gray is slightly lighter than [systemGray5](https://developer.apple.com/documentation/uikit/uicolor/3255074-systemgray5).
     /// In dark environments, this gray is slightly darker than `systemGray5`.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemGray6: Color { Color(uiBackport: .systemGray6) }
-    
-    // MARK: - Tint Color
-    
-    //    public static var tintColor: Color { Color(uiBackport: .tintColor) }
-    
-    // MARK: - Foreground Colors
-    /* Foreground colors for static text and related elements.
-     */
-    
-    /// The color for text labels that contain primary content.
-//    public static var label: Color { Color(uiBackport: .label) }
-    
-    /// The color for text labels that contain secondary content.
-    public static var secondaryLabel: Color { Color(uiBackport: .secondaryLabel) }
-    
-    /// The color for text labels that contain tertiary content.
-    public static var tertiaryLabel: Color { Color(uiBackport: .tertiaryLabel) }
-    
-    /// The color for text labels that contain quaternary content.
-    public static var quaternaryLabel: Color { Color(uiBackport: .quaternaryLabel) }
-    
-    /// The specified color for links.
-    ///
-    /// Foreground color for standard system links
-    public static var link: Color { Color(uiBackport: .link) }
-    
-    
-    /// The color for placeholder text in controls or text views.
-    ///
-    /// Foreground color for placeholder text in controls or text fields or text views.
-    public static var placeholderText: Color { Color(uiBackport: .placeholderText) }
-    
-    // MARK: - Separator Colors
-    /* Foreground colors for separators (thin border or divider lines).
-     * `separatorColor` may be partially transparent, so it can go on top of any content.
-     * `opaqueSeparatorColor` is intended to look similar, but is guaranteed to be opaque, so it will
-     * completely cover anything behind it. Depending on the situation, you may need one or the other.
-     */
-    
-    /// The color for thin borders or divider lines that allows some underlying content to be visible.
-    ///
-    /// This color may be partially transparent to allow the underlying content to show through. It adapts to the underlying trait environment.
-    public static var separator: Color { Color(uiBackport: .separator) }
-    
-    /// The color for borders or divider lines that hides any underlying content.
-    ///
-    /// This color is always opaque. It will completely cover anything behind it. Depending on the situation, you may need one or the other. It adapts to the underlying trait environment.
-    public static var opaqueSeparator: Color { Color(uiBackport: .opaqueSeparator) }
     
     // MARK: - Background Colors
     /* We provide two design systems (also known as "stacks") for structuring an iOS app's backgrounds.
@@ -213,16 +176,19 @@ extension Color {
     /// The color for the main background of your interface.
     ///
     /// Use this color for standard table views and designs that have a white primary background in a light environment.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemBackground: Color { Color(uiBackport: .systemBackground) }
     
     /// The color for content layered on top of the main background.
     ///
     /// Use this color for standard table views and designs that have a white primary background in a light environment.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var secondarySystemBackground: Color { Color(uiBackport: .secondarySystemBackground) }
     
     /// The color for content layered on top of secondary backgrounds.
     ///
     /// Use this color for standard table views and designs that have a white primary background in a light environment.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var tertiarySystemBackground: Color { Color(uiBackport: .tertiarySystemBackground) }
     
     /* 2. systemGroupedBackground
@@ -234,16 +200,19 @@ extension Color {
     /// The color for the main background of your grouped interface.
     ///
     /// Use this color for grouped content, including table views and platter-based designs.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemGroupedBackground: Color { Color(uiBackport: .systemGroupedBackground) }
     
     /// The color for content layered on top of the main background of your grouped interface.
     ///
     /// Use this color for grouped content, including table views and platter-based designs.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var secondarySystemGroupedBackground: Color { Color(uiBackport: .secondarySystemGroupedBackground) }
     
     /// The color for content layered on top of secondary backgrounds of your grouped interface.
     ///
     /// Use this color for grouped content, including table views and platter-based designs.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var tertiarySystemGroupedBackground: Color { Color(uiBackport: .tertiarySystemGroupedBackground) }
     
     // MARK: - Fill Colors
@@ -256,6 +225,7 @@ extension Color {
     /// Use system fill colors for items situated on top of an existing background color. System fill colors incorporate transparency to allow the background color to show through.
     ///
     /// Use this color to fill thin or small shapes, such as the track of a slider.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var systemFill: Color { Color(uiBackport: .systemFill) }
     
     /// An overlay fill color for medium-size shapes.
@@ -263,6 +233,7 @@ extension Color {
     /// Use system fill colors for items situated on top of an existing background color. System fill colors incorporate transparency to allow the background color to show through.
     ///
     /// Use this color to fill medium-size shapes, such as the background of a switch.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var secondarySystemFill: Color { Color(uiBackport: .secondarySystemFill) }
     
     /// An overlay fill color for large shapes.
@@ -270,6 +241,7 @@ extension Color {
     /// Use system fill colors for items situated on top of an existing background color. System fill colors incorporate transparency to allow the background color to show through.
     ///
     /// Use this color to fill large shapes, such as input fields, search bars, or buttons.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var tertiarySystemFill: Color { Color(uiBackport: .tertiarySystemFill) }
     
     /// An overlay fill color for large areas that contain complex content.
@@ -277,6 +249,7 @@ extension Color {
     /// Use system fill colors for items situated on top of an existing background color. System fill colors incorporate transparency to allow the background color to show through.
     ///
     /// Use this color to fill large areas that contain complex content, such as an expanded table cell.
+    @available(iOS 13, macCatalyst 13.1, *)
     public static var quaternarySystemFill: Color { Color(uiBackport: .quaternarySystemFill) }
     
     // MARK: - Static Text Colors
@@ -289,6 +262,7 @@ extension Color {
     /// This color doesn’t adapt to changes in the underlying trait environment.
     ///
     /// - Returns: The `Color` object.
+    @available(iOS 13, macCatalyst 13, *)
     public static var lightText: Color { Color(uiBackport: .lightText) }
     
     /// The nonadaptable system color for text on a light background.
@@ -296,6 +270,64 @@ extension Color {
     /// This color doesn’t adapt to changes in the underlying trait environment.
     ///
     /// - Returns: The `Color` object.
+    @available(iOS 13, macCatalyst 13, *)
     public static var darkText: Color { Color(uiBackport: .darkText) }
+    
+    #endif
+    
+    #if os(iOS) || os(tvOS) || targetEnvironment(macCatalyst)
+
+    // MARK: - Foreground Colors
+    /* Foreground colors for static text and related elements.
+     */
+    
+    /// The color for text labels that contain primary content.
+    //    public static var label: Color { Color(uiBackport: .label) }
+    
+    /// The color for text labels that contain secondary content.
+    @available(iOS 13, macCatalyst 13.1, tvOS 13, *)
+    public static var secondaryLabel: Color { Color(uiBackport: .secondaryLabel) }
+    
+    /// The color for text labels that contain tertiary content.
+    @available(iOS 13, macCatalyst 13.1, tvOS 13, *)
+    public static var tertiaryLabel: Color { Color(uiBackport: .tertiaryLabel) }
+    
+    /// The color for text labels that contain quaternary content.
+    @available(iOS 13, macCatalyst 13.1, tvOS 13, *)
+    public static var quaternaryLabel: Color { Color(uiBackport: .quaternaryLabel) }
+    
+    /// The specified color for links.
+    ///
+    /// Foreground color for standard system links
+    @available(iOS 13, macCatalyst 13.1, tvOS 13, *)
+    public static var link: Color { Color(uiBackport: .link) }
+    
+    
+    /// The color for placeholder text in controls or text views.
+    ///
+    /// Foreground color for placeholder text in controls or text fields or text views.
+    @available(iOS 13, macCatalyst 13.1, tvOS 13, *)
+    public static var placeholderText: Color { Color(uiBackport: .placeholderText) }
+    
+    // MARK: - Separator Colors
+    /* Foreground colors for separators (thin border or divider lines).
+     * `separatorColor` may be partially transparent, so it can go on top of any content.
+     * `opaqueSeparatorColor` is intended to look similar, but is guaranteed to be opaque, so it will
+     * completely cover anything behind it. Depending on the situation, you may need one or the other.
+     */
+    
+    /// The color for thin borders or divider lines that allows some underlying content to be visible.
+    ///
+    /// This color may be partially transparent to allow the underlying content to show through. It adapts to the underlying trait environment.
+    @available(iOS 13, macCatalyst 13.1, tvOS 13, *)
+    public static var separator: Color { Color(uiBackport: .separator) }
+    
+    /// The color for borders or divider lines that hides any underlying content.
+    ///
+    /// This color is always opaque. It will completely cover anything behind it. Depending on the situation, you may need one or the other. It adapts to the underlying trait environment.
+    @available(iOS 13, macCatalyst 13.1, tvOS 13, *)
+    public static var opaqueSeparator: Color { Color(uiBackport: .opaqueSeparator) }
+    
+    #endif
 }
 #endif
